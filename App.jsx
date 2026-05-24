@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 
-// 🔑 API Key Moralis (sudah diisi dari punyamu)
+// 🔑 API Key Moralis (sudah dari kamu)
 const MORALIS_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjI4NDZiNWEwLTQ2ZTgtNDRkMi1iNzdjLTg1ZTI5OWUyYjM0OSIsIm9yZ0lkIjoiNTE3MjYwIiwidXNlcklkIjoiNTMyMzIyIiwidHlwZUlkIjoiZTcyMGRiYjUtZTc0NC00Njg0LTk5ZDAtZWIzYmQwOTU0NDg3IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3Nzk2MjEwNDMsImV4cCI6NDkzNTM4MTA0M30.NMC4212fAlCD-e9eR4IO0YWXgeKnLb2uhrjfZRRfUkQ';
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
     return map[network] || 'eth';
   };
 
-  // 1️⃣ GoPlus Security (gratis, tanpa API key)
+  // 🔐 GoPlus Security (gratis, tanpa API key)
   const fetchGoPlus = async (chain, contract) => {
     try {
       let url = `https://api.gopluslabs.io/api/v1/token_security/${chain}?contract_addresses=${contract}`;
@@ -42,7 +41,7 @@ function App() {
     }
   };
 
-  // 2️⃣ Moralis Holder (untuk EVM)
+  // 📊 Moralis Holder (untuk ETH, BSC, BASE, ARB)
   const fetchMoralisHolders = async (chain, contract) => {
     try {
       const chainMap = { eth: 'eth', bsc: 'bsc', base: 'base', arb: 'arbitrum' };
@@ -65,7 +64,6 @@ function App() {
     }
   };
 
-  // Fungsi utama scan
   const handleScan = async () => {
     if (!address.trim()) return alert('Masukkan contract address!');
     setLoading(true);
@@ -85,7 +83,6 @@ function App() {
     }
   };
 
-  // Tampilan website
   return (
     <div style={{ background: '#0a0a0a', color: '#0f0', minHeight: '100vh', padding: 20, fontFamily: 'monospace' }}>
       <h1 style={{ borderBottom: '2px solid #0f0', display: 'inline-block' }}>KINGDEGEN</h1>
